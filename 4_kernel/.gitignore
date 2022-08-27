@@ -1,3 +1,6 @@
 *.log
 *.bin
+*.o
+*.dis
+*.map
 
