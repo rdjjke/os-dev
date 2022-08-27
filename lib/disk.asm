@@ -18,17 +18,18 @@ disk_load:
     
     int 0x13 ; BIOS interrupt.
 
+    mov si, DISK_ERROR_MSG
     jc disk_error ; Jump if error (i.e. carry flag set).
 
     pop dx
     cmp dh, al     ; If AL (sectors read) != DH (sectors expected)
+    mov si, NOT_ENOUGH_SECTORS_MSG
     jne disk_error ; display an error message.
 
     popa
     ret
 
 disk_error:
-    mov si, DISK_ERROR_MSG
     call print_string
     call println
 
@@ -36,4 +37,7 @@ disk_error:
 
 DISK_ERROR_MSG:
     db "Disk read error!", 0
+
+NOT_ENOUGH_SECTORS_MSG:
+    db "Not enough sectors were read!", 0
 
