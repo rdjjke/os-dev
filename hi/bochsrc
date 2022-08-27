@@ -1,0 +1,16 @@
+floppya: 1_44=hi.bin, status=inserted
+boot: floppy
+
+romimage: file=$BXSHARE/BIOS-bochs-latest, address=0xfffe0000
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+
+display_library: sdl2
+
+log: bochs.log
+error: action=report
+info: action=report
+
+megs: 32
+clock: sync=realtime, time0=local
+cpu: count=1, ips=1000000
+
