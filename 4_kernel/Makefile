@@ -30,7 +30,7 @@ kernel_entry.o : kernel_entry.asm
 # Assemble the boot sector to raw machine code.
 # The -I options tells nasm where to find our useful assembly
 # routines that we include in boot_sect .asm.
-boot_sect.bin : boot_sect.asm
+boot_sect.bin : boot_sect.asm $(wildcard ../lib/*.asm)
 	nasm $< -f bin -I '../lib/' -o $@
 
 clean:

@@ -20,7 +20,7 @@ call load_kernel ; Load our kernel into the disk.
 
 call switch_to_pm ; We never return from here.
 
-jmp $ ; Jump forever.
+jmp $ ; Hung forever.
 
 %include "../lib/print.asm"         ; Include our print subroutines.
 %include "../lib/disk.asm"          ; Include our disk i/o subroutines.
